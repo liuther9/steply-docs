@@ -1,0 +1,77 @@
+# GIT
+
+## Branches
+For every new change a temporary new branch must be created. 
+
+The name of the branch must be in form:
+
+```[category]/[ticket id]/[description]```
+
+### Category
+Must be one of the following:
+
+```feature``` is for adding, refactoring or removing a feature
+
+```bugfix``` is for fixing a bug
+
+```hotfix``` is for changing code with a temporary solution and/or without following the usual process (usually because of an emergency)
+
+```experimental``` is for experimenting outside of an issue/ticket
+
+### Ticket id
+A ticket id referencing specific task from Jira, for example: LEON-11
+
+If there is no ticket, insert no-ref
+
+### Description
+After the reference, there should be another ```"/"``` followed by a description which sums up the purpose of this specific branch. This description should be short and "kebab-cased".
+
+### Examples:
+You need to add, refactor or remove a feature: git branch ```feature/issue-42/create-new-button-component```
+
+You need to fix a bug: ```git branch bugfix/issue-342/button-overlap-form-on-mobile```
+
+You need to fix a bug really fast (possibly with a temporary solution): ```git branch hotfix/no-ref/registration-form-not-working```
+
+You need to experiment outside of an issue/ticket: ```git branch experimental/no-ref/refactor-components-with-atomic-design```
+
+## Commits
+A commit must follow the following form:
+
+```[category]: [statement]; [statement] [...]```
+
+### Category
+A commit message should start with a category of change. You can pretty much use the following 4 categories for everything: feat, fix, refactor, and chore.
+
+```feat``` is for adding a new feature
+
+```fix``` is for fixing a bug
+
+```refactor``` is for changing code for performance or convenience purpose (e.g. readibility)
+
+```chore``` is for everything else (writing documentation, formatting, adding tests, cleaning useless code etc.)
+
+After the category, there should be a ```":"``` announcing the commit description.
+
+### Statement(s)
+After the colon, the commit description should consist in short statements describing the changes.
+
+Each statement should start with a verb conjugated in an imperative way. Statements should be separated from themselves with a ```";".```
+
+### Examples
+```git commit -m 'feat: add new button component; add new button components to templates'```
+
+```git commit -m 'fix: add the stop directive to button component to prevent propagation'```
+
+```git commit -m 'refactor: rewrite button component in TypeScript'```
+
+```git commit -m 'chore: write button documentation'```
+
+## Hooks
+Project uses ***Husky*** on commits and pushes:
+
+Runs ```yarn lint``` on commits and ensures that there are no ESLint errors
+
+Makes sure the commit message is written in the format described above
+
+Runs ```yarn build``` on git pushes and makes sure that there no build errors

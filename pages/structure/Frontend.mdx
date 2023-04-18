@@ -1,0 +1,21 @@
+# Frontend
+
+## Main Stack
+
+
+***src/*** - is Entry point basically for everything
+
+***app/*** - folder is where routing starts
+
+You can create folders like ***_widgets***, ***_components***, ***_features***, ***_types*** etc inside related routes
+
+**Feature Sliced Design** - is the design pattern we will be following, though not strictly :)
+
+All components/widgets etc related to particular logic should be placed inside _components/ folder or _widgets/ inside that route folder linked to this logic.
+
+src/utils is where Supabase Provider lies. Might be reconsidered later
+
+All shared components/utilities/hooks/types without any business logic should be placed inside src/shared/[folder] folder
+
+Typical component template is '[Component]' folder with index.tsx
+
